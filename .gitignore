@@ -1,5 +1,6 @@
 # Core from the project
 drivers
+report
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

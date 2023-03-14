@@ -2,7 +2,7 @@
 
 Las siguientes instrucciones premiten obtener una copia del proyecto y poder correrlo localmente para desarollo de nuevas funcionalidades o testing.
 
-### Consideraciones solicitadas del challenge
+### Consideraciones del challenge
 > - Se utilizo selenium con python para la realizacion del proyecto
 > - A su vez se añadio la libreria de pytest_bdd para el uso de gherkin 
 > - La version de python utilizada es la 3.9.7
@@ -49,7 +49,7 @@ Las siguientes instrucciones premiten obtener una copia del proyecto y poder cor
 ## Ejecución de tests
 > El framework está basado en *pytest*, por lo que las distintas formas de ejecutar los test. Para ejecutar un test específico se debe correr el siguiente comando:
 > ```
-> python -m pytest -s --alluredir=report ./src/steps/xxxxx.py
+> python -m pytest -s ./src/steps/LoginStep.py --alluredir=report -v
 > ```
 
 > #### Allure 
