@@ -4,8 +4,6 @@ import time
 
 class BasePage():
 
-    DRIVER = WebDriver().get_driver()
-
     def is_visible(self, locator: WebElement):
         try:
             time.sleep(2)
@@ -35,7 +33,10 @@ class BasePage():
             print('Unable to get text from element: ', locator)
 
     def scroll_until_element_appears(self, locator):
-        self.DRIVER.execute_script("arguments[0].scrollIntoView();", locator)
+        WebDriver().get_driver().execute_script("arguments[0].scrollIntoView();", locator)
 
-    def tier_down(self):
-        self.DRIVER.quit()
+    def tear_down(self):
+        WebDriver().get_driver().quit()
+    
+    def set_up(self):
+        WebDriver().create_driver()
