@@ -37,7 +37,7 @@ def user_is_successfully_logged(first_name, last_name):
                              expectedValue=first_name + ' ' + last_name,
                              actualValue=home().get_header_profile_text().strip())
     login().tear_down()
-    
+
 @allure.step("an error alert is displayed")
 @then("an error alert is displayed")
 def user_is_successfully_logged():
@@ -45,3 +45,15 @@ def user_is_successfully_logged():
                              expectedValue='No match for Username and/or Password.',
                              actualValue=login().get_alert_text())
     login().tear_down()
+
+@allure.step("click on Logout button")
+@when("click on Logout button")
+def click_on_logout_button():
+    home().click_on_close_modal_notification_button()
+    home().click_on_logout_button()
+
+@allure.step("user is succesfully logout")
+@then("user is succesfully logout")
+def user_is_successfully_logout():
+    login_button_validation = login().is_login_button_visible() != None
+    Assertion().assertTrue(failedMessage='Error when logout', value=login_button_validation)
