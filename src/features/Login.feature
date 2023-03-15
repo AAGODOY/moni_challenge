@@ -21,3 +21,15 @@ Feature: Login
     Examples:
         | user | password |
         | demo |  sarasa  |
+
+    Scenario Outline: Validate logout
+        Given located on login page
+        When complete <user> field
+        And complete <password> field
+        And click on Login button
+        And click on Logout button
+        Then user is succesfully logout
+
+    Examples:
+        | user | password |
+        | demo |   demo   |

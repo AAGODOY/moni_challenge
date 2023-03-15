@@ -36,3 +36,6 @@ class LoginPage(BasePage):
     def get_alert_text(self):
         element = WebDriver().get_driver().find_element(By.CSS_SELECTOR, self.ERROR_ALERT)
         return BasePage().get_text(element)
+    
+    def is_login_button_visible(self):
+        return WebDriver().get_driver().find_element(By.CSS_SELECTOR, self.LOGIN_BUTTON)
