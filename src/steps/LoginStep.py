@@ -10,6 +10,7 @@ scenarios('../features/Login.feature')
 @allure.step("located on login page")
 @given("located on login page")
 def locate_on_login_page():
+    login().set_up()
     login().validate_visibility_of_user_name_field().validate_visibility_of_password_field()
 
 @allure.step("complete <user> field")
@@ -35,4 +36,12 @@ def user_is_successfully_logged(first_name, last_name):
     Assertion().assertEquals(failedMessage='The header profile text is incorrect', 
                              expectedValue=first_name + ' ' + last_name,
                              actualValue=home().get_header_profile_text().strip())
+    login().tear_down()
     
+@allure.step("an error alert is displayed")
+@then("an error alert is displayed")
+def user_is_successfully_logged():
+    Assertion().assertEquals(failedMessage="The alert wasn't displayed", 
+                             expectedValue='No match for Username and/or Password.',
+                             actualValue=login().get_alert_text())
+    login().tear_down()
