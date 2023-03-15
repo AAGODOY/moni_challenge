@@ -14,10 +14,6 @@ class WebDriver():
             cls.instance = super(WebDriver, cls).__new__(cls)
         return cls.instance
 
-    def __init__(self):
-        if self.__DRIVER == None:
-            self.create_driver()
-
     def create_driver(self):
         if self.__BROWSER == "chrome":
             chromeoptions = webdriver.ChromeOptions()
